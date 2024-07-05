@@ -13,6 +13,6 @@ spec:
               operator: In
               values: ["warroyo"]
             - key: k8s-upgraded
-              operator: Exist
+              operator: Exists
               values: []
    description: ""
