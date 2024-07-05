@@ -13,5 +13,3 @@ spec:
               values: ["warroyo"]
             - key: k8s-upgraded
               operator: DoesNotExist
-              values: []
-   description: ""
