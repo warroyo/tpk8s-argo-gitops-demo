@@ -1,0 +1,15 @@
+ apiVersion: spaces.tanzu.vmware.com/v1alpha1
+ kind: Space
+ metadata:
+   name: dev-sbx
+ spec:
+   template:
+     spec:
+       profiles:
+       - name: spring-dev.tanzu.vmware.com
+       - name: networking.sandbox.tpk8s.aws.warroyo.com
+   availabilityTargets:
+   - name: on-prem-warroyo
+     replicas: 1
+   updateStrategy:
+     type: RollingUpdate
