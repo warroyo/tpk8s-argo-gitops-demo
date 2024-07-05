@@ -2,7 +2,6 @@ apiVersion: spaces.tanzu.vmware.com/v1alpha1
 kind: AvailabilityTarget
 metadata:
   name: on-prem-warroyo
-  description: "Avt for dev tkgs clusters"
   namespace: default
 spec:
    affinity:
