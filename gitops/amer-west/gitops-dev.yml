@@ -1,13 +1,13 @@
  apiVersion: spaces.tanzu.vmware.com/v1alpha1
  kind: Space
  metadata:
-   name: gitops-int
+   name: gitops-dev
  spec:
    template:
      spec:
        profiles:
        - name: spring-dev.tanzu.vmware.com
-       - name: networking.dev.tpk8s.aws.warroyo.com
+       - name: networking.int.tpk8s.aws.warroyo.com
        resources:
          limits:
            cpu: '5'
