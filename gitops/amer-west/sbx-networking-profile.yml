@@ -1,7 +1,7 @@
 apiVersion: spaces.tanzu.vmware.com/v1alpha1
 kind: Profile
 metadata:
-  name: networking.int.tpk8s.aws.warroyo.com
+  name: networking.sbx.tpk8s.aws.warroyo.com
   namespace: default
 spec:
   requiredCapabilities:
