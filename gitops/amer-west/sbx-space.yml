@@ -7,7 +7,7 @@
      spec:
        profiles:
        - name: spring-dev.tanzu.vmware.com
-       - name: networking.sandbox.tpk8s.aws.warroyo.com
+       - name: networking.sbx.tpk8s.aws.warroyo.com
    availabilityTargets:
    - name: on-prem-warroyo
      replicas: 1
