@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: warroy-run-cg
+  namespace: argocd
+spec:
+  destination:
+    name: 'sa-tanzu-platform:AMER-West:warroyo-run-cg'
+    namespace: default
+    server: ''
+  source:
+    path: gitops/amer-west/clustergroups/warroyo-run
+    repoURL: 'https://github.com/warroyo/tpk8s-argo-gitops-demo'
+    targetRevision: HEAD
+  sources: []
+  project: default
+  syncPolicy:
+    syncOptions:
+    - Validate=false
+    automated:
+      prune: false
+      selfHeal: false
