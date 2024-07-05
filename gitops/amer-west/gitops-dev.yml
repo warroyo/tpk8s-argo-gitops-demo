@@ -8,10 +8,6 @@
        profiles:
        - name: spring-dev.tanzu.vmware.com
        - name: networking.int.tpk8s.aws.warroyo.com
-       resources:
-         limits:
-           cpu: '5'
-           memory: 10Gi
    availabilityTargets:
    - name: on-prem-warroyo
      replicas: 1
