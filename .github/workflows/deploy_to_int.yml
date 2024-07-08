@@ -2,6 +2,8 @@ name: TPK8S Gitops - promote to int
 run-name: ${{ github.actor }} pomoting to int
 on:
   push:
+    branches:
+      - "main"
     paths:
     - "gitops/amer-west/spaces/gitops-dev/**"
 jobs:
@@ -35,7 +37,7 @@ jobs:
         run: |
             tanzu login
             tanzu project use AMER-West
-            cd gitops/amer-west/spoaces/gitops-dev
+            cd gitops/amer-west/spaces/gitops-dev
             tanzu promote ./deploy --to gitops/amer-west/spaces/gitops-int
       
 
