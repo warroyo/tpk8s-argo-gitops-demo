@@ -9,7 +9,7 @@ spec:
     apiGroup: services.tanzu.vmware.com
     connectorName: main
     kind: PreProvisionedService
-    name: dev-postgres1
+    name: dev-postgres2
   targetRef:
     apiGroup: apps.tanzu.vmware.com
     kind: ContainerApp
