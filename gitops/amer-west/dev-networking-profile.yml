@@ -50,4 +50,4 @@ spec:
     values:
       inline:
         egress.tanzu.vmware.com:
-          open: false
+          open: true
