@@ -5,10 +5,10 @@ metadata:
     apps.tanzu.vmware.com/promotable: ""
     apps.tanzu.vmware.com/promote-group: ContainerApp/spring-music01
   creationTimestamp: null
-  name: spring-music01.apps.local.20240708.445.9264
+  name: spring-music01.apps.local.20240708.507.34576
 spec:
   refName: spring-music01.apps.local
-  releasedAt: "2024-07-08T04:46:36Z"
+  releasedAt: "2024-07-08T05:09:08Z"
   template:
     spec:
       deploy:
@@ -17,7 +17,7 @@ spec:
           - --wait=false
       fetch:
       - imgpkgBundle:
-          image: ghcr.io/warroyo/spring-music01@sha256:ffd5f76f9f7ce8ca158691dd3939a86cb54da7a43728060b93c2b91271abca4e
+          image: ghcr.io/warroyo/spring-music01@sha256:3fb8059d134702b450681557059af31354f17764e9e5a64fe51ddabf19ac2f2c
       template:
       - ytt:
           paths:
@@ -28,4 +28,4 @@ spec:
           - '-'
   valuesSchema:
     openAPIv3: null
-  version: 20240708.445.9264
+  version: 20240708.507.34576
