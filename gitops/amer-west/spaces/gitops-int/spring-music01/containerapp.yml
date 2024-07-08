@@ -10,13 +10,13 @@ spec:
   contact:
     team: warroyo
   content:
-    buildTimestamp: "2024-07-08T05:07:34Z"
-    gitCommit: fc74d32ea5dc575f89f02072d35ee6cdec3839e4-dirty
+    buildTimestamp: "2024-07-08T15:22:30Z"
+    gitCommit: d0c67ee65e606611a9e00c2b1c1af5ea324e3221-dirty
     gitURL: github.com/warroyo/spring-music.git
     packageRefName: spring-music01.apps.local
-    summary: git:fc74d32 @ 2024-07-08T05:07:34Z
-    version: 20240708.507.34576
-  image: ghcr.io/warroyo/spring-music01@sha256:95fcc45cbd21773901a385bef062bb236b521a6cd9ab27b4257eda2dc01d0068
+    summary: git:d0c67ee @ 2024-07-08T15:22:30Z
+    version: 20240708.1522.30013
+  image: ghcr.io/warroyo/spring-music01@sha256:33d7d8a413c37a68839d1d3cc82ddc3fb4e027a4479d33313a25b10e4a586bc0
   nonSecretEnv:
   - name: JAVA_TOOL_OPTIONS
     value: -Dmanagement.endpoint.health.probes.add-additional-paths=true -Dmanagement.health.probes.enabled=true
@@ -73,7 +73,7 @@ spec:
   - apiGroup: data.packaging.carvel.dev
     for: kubernetes.delete
     kind: Package
-    name: spring-music01.apps.local.20240708.507.34576
+    name: spring-music01.apps.local.20240708.1522.30013
   - for: kubernetes.delete
     kind: Secret
     name: spring-music01-values
