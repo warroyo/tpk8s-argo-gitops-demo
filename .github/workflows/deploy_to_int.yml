@@ -1,0 +1,57 @@
+name: TPK8S Gitops - promote to int
+run-name: ${{ github.actor }} pomoting to int
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+    - gitops/amer-west/spaces/gitops-dev
+jobs:
+  gitops-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Tanzu CLI
+        run: |
+          export TANZU_CLI_CEIP_OPT_IN_PROMPT_ANSWER=no
+          wget https://github.com/vmware-tanzu/tanzu-cli/releases/download/v1.3.0/tanzu-cli-linux-amd64.tar.gz -O /tmp/tanzu.tar.gz
+          tar -xvf /tmp/tanzu.tar.gz -C /tmp
+          install /tmp/v1.3.0/tanzu-cli-linux_amd64 /usr/local/bin/tanzu
+          tanzu config eula accept
+          tanzu init
+          tanzu version
+
+      - name: Install tanzu plugins
+        run: |
+          tanzu plugin install --group vmware-tanzu/app-developer
+
+      - name: Check out repository code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+
+            
+      - name:  promote app to the int space
+        env:
+          TANZU_API_TOKEN: ${{ secrets.API_TOKEN }}
+          TANZU_CLI_CLOUD_SERVICES_ORGANIZATION_ID: 77aee83b-308f-4c8e-b9c4-3f7a6f19ba75
+        run: |
+            tanzu login
+            tanzu project use AMER-West
+            cd gitops/amer-west/spoaces/gitops-dev
+            tanzu promote ./deploy --to gitops/amer-west/spaces/gitops-int
+      
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          branch: "int-${{github.run_attempt}}"
+          commit_message: push application deployment to dev
+          commit_user_name: warroyo
+          create_branch: true
+          repository: .
+
+      - name: create pull request
+        run: gh pr create --repo warroyo/tpk8s-argo-gitops-demo -B main -H int-${{github.run_attempt}} --title 'int deployment' --body 'Created by Github action'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+
+      - run: echo "🍏 This job's status is ${{ job.status }}."
