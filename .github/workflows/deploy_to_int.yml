@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} pomoting to int
 on:
   push:
     branches:
-      - "main"
+      - main
     paths:
     - "gitops/amer-west/spaces/gitops-dev/**"
 jobs:
