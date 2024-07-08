@@ -2,10 +2,8 @@ name: TPK8S Gitops - promote to int
 run-name: ${{ github.actor }} pomoting to int
 on:
   push:
-    branches:
-      - "main"
     paths:
-    - gitops/amer-west/spaces/gitops-dev
+    - "gitops/amer-west/spaces/gitops-dev/**"
 jobs:
   gitops-deploy:
     runs-on: ubuntu-latest
