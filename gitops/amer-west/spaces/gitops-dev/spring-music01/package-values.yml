@@ -7,6 +7,5 @@ metadata:
     apps.tanzu.vmware.com/promotable: ""
     apps.tanzu.vmware.com/promote-group: ContainerApp/spring-music01
     argocd.argoproj.io/sync-options: Replace=true
-  creationTimestamp: null
   name: spring-music01-values
 type: Opaque
