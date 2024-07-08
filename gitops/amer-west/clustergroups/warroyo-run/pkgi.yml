@@ -79,6 +79,8 @@ spec:
 apiVersion: packaging.carvel.dev/v1alpha1
 kind: PackageInstall
 metadata:
+  annotations:
+    ext.packaging.carvel.dev/ytt-paths-from-secret-name.0: cert-man-recursive-ns
   name: cert-manager.tanzu.vmware.com
   namespace: default
 spec:

@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Secret
+metadata:
+ name: cert-man-recursive-ns
+ namespace: default
+type: Opaque
+stringData:
+  cert-man-recursive-ns.yaml: |
+    #@ load("@ytt:overlay", "overlay")
+    #@overlay/match by=overlay.subset({"kind": "Deployment", "metadata": {"name": "cert-manager" }}), expects=1
+
+    ---
+    spec:
+      template:
+        spec: 
+          containers:
+          - #@overlay/match by=overlay.subset({"name": "cert-manager-controller"}), expects=1
+            args:
+            #@overlay/append
+            - --dns01-recursive-nameservers=10.220.136.3:53,10.220.136.2:53
+            - --dns01-recursive-nameservers-only  
