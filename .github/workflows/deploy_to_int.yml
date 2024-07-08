@@ -38,7 +38,7 @@ jobs:
             tanzu login
             tanzu project use AMER-West
             cd gitops/amer-west/spaces/gitops-dev
-            tanzu promote ./deploy --to gitops/amer-west/spaces/gitops-int
+            tanzu promote --to ../gitops-int
       
 
       - uses: stefanzweifel/git-auto-commit-action@v5
