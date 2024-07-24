@@ -13,3 +13,5 @@ spec:
               values: ["warroyo"]
             - key: k8s-upgraded
               operator: DoesNotExist
+            - key: cloud
+              operator: DoesNotExist
