@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Secret
 metadata:
  name: cert-man-recursive-ns
+ annotations:
+  argocd.argoproj.io/sync-options: Replace=true
  namespace: default
 type: Opaque
 stringData:
